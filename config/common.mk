@@ -116,10 +116,6 @@ PRODUCT_COPY_FILES += \
 # This is Bliss!
 PRODUCT_COPY_FILES += \
     vendor/bliss/config/permissions/com.bliss.android.xml:system/etc/permissions/com.bliss.android.xml
-
-    # APP REMOVAL SCRIPT
-PRODUCT_COPY_FILES += \
-   vendor/bliss/prebuilt/common/addon.d/60-removal.sh:system/addon.d/60-removal.sh
    
 # Theme engine
 include vendor/bliss/config/themes_common.mk
@@ -147,10 +143,15 @@ PRODUCT_PACKAGES += \
 
 # Custom CM packages
 PRODUCT_PACKAGES += \
+    Launcher3 \
     Trebuchet \
+    AudioFX \
+    CMWallpapers \
     CMFileManager \
     Eleven \
     LockClock \
+    CMAccount \
+    CyanogenSetupWizard \
     CMSettingsProvider \
     ExactCalculator \
     LiveLockScreenService \
