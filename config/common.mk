@@ -71,7 +71,6 @@ PRODUCT_COPY_FILES += \
     vendor/bliss/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
     vendor/bliss/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
     vendor/bliss/prebuilt/common/bin/50-bliss.sh:system/addon.d/50-bliss.sh \
-    vendor/bliss/prebuilt/common/bin/60-removal.sh:system/addon.d/60-removal.sh \
     vendor/bliss/prebuilt/common/bin/blacklist:system/addon.d/blacklist
 endif
 
