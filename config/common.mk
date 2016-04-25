@@ -96,10 +96,6 @@ PRODUCT_COPY_FILES += \
 # AdAway App
 PRODUCT_COPY_FILES += \
     vendor/bliss/prebuilt/musik/Musik.apk:system/app/Musik/Musik.apk
-    
-# AdAway App
-PRODUCT_COPY_FILES += \
-    vendor/bliss/prebuilt/Hotspot/Hotspot.apk:system/app/Hotspot/Hotspot.apk
 
 # KernelAdiutor
 PRODUCT_COPY_FILES += \
