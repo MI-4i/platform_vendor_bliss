@@ -66,13 +66,11 @@ ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
 endif
 
 # Backup Tool
-ifneq (,$(filter true, $(CYNGN_TARGET) $(EXTERNAL_CLEAN_TARGET)))
 PRODUCT_COPY_FILES += \
     vendor/bliss/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
     vendor/bliss/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
     vendor/bliss/prebuilt/common/bin/50-bliss.sh:system/addon.d/50-bliss.sh \
     vendor/bliss/prebuilt/common/bin/blacklist:system/addon.d/blacklist
-endif
 
 # Signature compatibility validation
 PRODUCT_COPY_FILES += \
@@ -91,11 +89,11 @@ endif
 
 # AdAway App
 PRODUCT_COPY_FILES += \
-    vendor/bliss/prebuilt/AdAway/AdAway.apk:system/priv-app/AdAway/AdAway.apk
+    vendor/bliss/prebuilt/common/app/AdAway.apk:system/priv-app/AdAway/AdAway.apk
 
 # KernelAdiutor
 PRODUCT_COPY_FILES += \
-    vendor/bliss/prebuilt/KernelAdiutor/KernelAdiutor.apk:system/app/KernelAdiutor/KernelAdiutor.apk
+    vendor/bliss/prebuilt/common/app/KernelAdiutor.apk:system/app/KernelAdiutor/KernelAdiutor.apk
 
 # Bliss-specific init file
 PRODUCT_COPY_FILES += \
@@ -134,6 +132,7 @@ PRODUCT_PACKAGES += \
 
 # Optional CM packages
 PRODUCT_PACKAGES += \
+    Gello \
     libemoji \
     Terminal
 
@@ -261,6 +260,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.ota.version=$(BLISS_OTA_VERSION) \
     ro.ota.device=$(TARGET_DEVICE) \
     ro.ota.manifest=$(BLISS_DEVICE_URL)/ota$(BLISS_OTA_XMLVER).xml
+
+# Export parameters required for OTA.xml
+export BLISS_OTA_ROM=$(BLISS_ROM_NAME)
+export BLISS_OTA_VERNAME=$(BLISS_VERSION)
+export BLISS_OTA_VER=$(BLISS_OTA_VERSION)
+export BLISS_OTA_URL=$(BLISS_DEVICE_URL)/$(BLISS_VERSION).zip
     
 ifeq ($(OTA_64),true)
 TARGET_ARCH_ABI := arm64-v8a
